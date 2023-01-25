@@ -1,0 +1,14 @@
+{
+    "env": {
+        "PORT": 3001,
+        "TOPIC": "chatgpt",
+        "TOKEN": "AIzaSyClTuY4fEMl_PB0xBirtXuVUw2n5VrSRAg"
+    },
+    "ignore": [
+        "readme.md",
+        ".env",
+        "*.sqlite",
+        ".gitignore",
+        ".git/"
+    ]
+}
