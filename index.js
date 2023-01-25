@@ -1,34 +1,24 @@
 import Express from "express";
+import { Database } from "@leafac/sqlite";
 import { config } from "dotenv";
 config();
 
-import search from "youtube-search";
+import dbInit from "./db-init.js";
+import fetchJob from "./fetch-job.js";
+import dbFetch from "./db-fetch.js";
 
 const PORT = process.env.PORT || 3001;
-const TOPIC = process.env.TOPIC || "cricket";
-const API_KEYS = process.env.TOKEN.split(',').map(key => key.trim()) || ["null"];
+
+const database = new Database("db.sqlite");
+
+dbInit(database);
+fetchJob(database);
 
 const app = Express();
 app.set("view engine", "ejs");
 
-
-const opts = {
-    maxResults: 10,
-    key: API_KEYS[0],
-    order: "date",
-    type: "video"
-};
-
 app.get("/", async (req, res) => {
-    await search(TOPIC, opts, (err, results) => {
-        if (err) {
-            console.error(err);
-            res.json({ msg: "error" });
-        }
-        else {
-            res.render("home", { data: JSON.stringify(results) });
-        }
-    });
+    res.render("home", { data: dbFetch(req.query.page_id || 0, database) });
 });
 
 
