@@ -23,7 +23,7 @@ const fetchJob = (db) => {
                 r.forEach(_r => { db.run(sql`INSERT into "videos"("job_id","data") values (${id},${JSON.stringify(_r)});`); });
             }
         });
-    }, 5000);
+    }, 30000);
 }
 
 export default fetchJob;

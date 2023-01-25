@@ -1,7 +1,7 @@
 {
     "env": {
         "PORT": 3001,
-        "TOPIC": "chatgpt",
+        "TOPIC": "football",
         "TOKEN": "AIzaSyClTuY4fEMl_PB0xBirtXuVUw2n5VrSRAg"
     },
     "ignore": [
