@@ -1,8 +1,8 @@
 import search from "youtube-search";
 import sql from "@leafac/sqlite";
 
-const TOPIC = process.env.TOPIC || "cricket";
-const API_KEYS = process.env.TOKEN.split(',').map(key => key.trim()) || ["null"];
+const TOPIC = process.env.TOPIC;
+const API_KEYS = process.env.TOKEN.split(',').map(key => key.trim());
 
 const opts = {
     maxResults: 10,

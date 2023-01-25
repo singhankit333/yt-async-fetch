@@ -6,7 +6,7 @@ const dbFetch = (page_id, db) => {
     const job_id = tableSize - page_id;
     if (job_id <= 0) return JSON.stringify({ message: "Inavlid page number" });
     const rowDetails = db.get(sql`select * from "jobs" where "id"=${job_id};`);
-    const videos = db.all(sql`select * from "videos" where "job_id"=${job_id};`);
+    const videos = db.all(sql`select * from "videos" where "job_id"=${job_id};`).map(r => ({ id: r.id, data: JSON(r.data) }));
     return JSON.stringify({ ...rowDetails, videos: videos });
 }
 

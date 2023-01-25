@@ -1,13 +1,11 @@
 import Express from "express";
 import { Database } from "@leafac/sqlite";
-import { config } from "dotenv";
-config();
 
 import dbInit from "./db-init.js";
 import fetchJob from "./fetch-job.js";
 import dbFetch from "./db-fetch.js";
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 const database = new Database("db.sqlite");
 

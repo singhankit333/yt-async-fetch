@@ -1,9 +1,6 @@
-# Dockerfile
-
-FROM node:16.15-alpine3.14
+FROM node:16.19.0
 WORKDIR /app
-COPY package.json /app
-RUN npm ci
 COPY . /app
-EXPOSE 3000 
+RUN npm ci
 CMD [ "npm", "start" ]
+EXPOSE 3000 
