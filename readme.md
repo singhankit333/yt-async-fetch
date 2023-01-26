@@ -1,10 +1,14 @@
 # Youtube Fetch System
 
-> This repository contains the code for a backend to fetch latest videos on a given topic and store the results in a database.
+> This repository contains the code for a backend to fetch latest videos on a given topic and store the results in a sqlite database.
 
-## Features
+## Built With
 
-- Built with Node.js, Express.js, Sqlite3
+- Node.js
+- Express.js
+- EJS view engine
+- Sqlite3
+- YouTube Search API
 
 ## Getting Started
 
@@ -13,20 +17,28 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - Node.js and npm
+- Docker
 
-### Installation
+### Running Instructions
 
-1. Clone the repository
+```bash
+$ git clone https://www.github.com/singhankit333/yt-async-fetch.git
+$ cd ./yt-async-fetch
+$ npm ci
+$ PORT=3000 TOPIC=<your search topic> TOKEN=<YouTube API Key> npm start
+```
 
-   ```bash
-   git clone repourl
-   ```
+### Dockerization Build & Run Instructions
 
-## Built With
+```bash
+$ git clone https://www.github.com/singhankit333/yt-async-fetch.git
+$ cd ./yt-async-fetch
+$ docker build -t yt-async-fetch .
+$ docker run -p 3000:3000 -e PORT=3000 -e TOPIC=<Search Topic> -e TOKEN=<YouTube API Key> yt-async-fetch
+```
 
-- [Node.js](https://nodejs.org/) - JavaScript runtime
-- [Express.js](https://expressjs.com/) - JS backend development framework
+> You can then go http://localhost:3000/?page_id=<page_number> to see the results of the search. Where 0 being the mose recent results and higher page number the older.
 
 ## Author
 
-- **Name** - [GH username](https://github.com/gh_username)
+- **Ankit Kumar Singh** - [singhankit333](https://github.com/singhankit333)
